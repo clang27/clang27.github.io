@@ -1,6 +1,21 @@
+.title-name-short {
+  font-size: 2rem;
+}
+
+.title-name-fancy {
+  font-style: italic;
+  font-size: 2.6rem;
+  font-weight: 700;
+}
+
+.title-important {
+  font-style: italic;
+  font-size: 1rem;
+}
+
 .u-section-1 {
-  background-image: url("../img/dfg-min.jpg");
-  background-position: 50% 50%;
+  background-image: url("../img/Engagement-1.jpg");
+  background-position: 50% 60%;
 }
 
 .u-section-1 .u-sheet-1 {
@@ -8,48 +23,54 @@
 }
 
 .u-section-1 .u-group-1 {
-  width: 468px;
-  min-height: 457px;
+  width: 460px;
+  min-height: 397px;
   background-image: none;
   height: auto;
   margin: 89px auto 60px 0;
+  background-color: #dbeed8;
+  border-radius: 2px;
 }
 
 .u-section-1 .u-container-layout-1 {
-  padding: 30px 50px;
+  padding: 30px 30px;
 }
 
 .u-section-1 .u-text-1 {
+  line-height: 2.6rem;
   font-weight: 700;
   font-family: "Playfair Display", serif;
-  font-size: 3rem;
-  margin: 52px 0 0;
+  font-size: 2.3rem;
+  margin: 30px 0 0;
 }
 
 .u-section-1 .u-text-2 {
-  font-size: 1.125rem;
-  margin: 27px 0 0;
+  font-size: 1.1rem;
+  line-height: 1.5rem;
+  margin: 60px 40px 0 0;
 }
 
-.u-section-1 .u-text-3 {
-  font-style: italic;
-  margin: 20px 227px 0 0;
+.u-section-1 .u-container-layout-2 {
+  margin-top: 70px;
 }
 
-.u-section-1 .u-btn-1 {
-  border-style: none none solid;
+.u-section-1 .u-container-layout-2 .u-layout-cell-2 {
+  padding: 0 0 0 3%;
   font-style: italic;
-  padding: 0;
 }
 
 .u-section-1 .u-btn-2 {
-  border-style: solid;
+  background-color: #737c72 !important;
+  opacity: 0.5;
+  border-style: dashed;
   text-transform: uppercase;
-  font-weight: 600;
+  font-weight: 700;
   font-size: 0.875rem;
+  text-decoration: line-through;
+  font-style: italic;
   letter-spacing: normal;
-  margin: 40px auto 0 0;
   padding: 10px 47px;
+  margin: 0;
 }
 
 @media (max-width: 1199px) {
@@ -72,9 +93,6 @@
     font-size: 2.75rem;
   }
 
-  .u-section-1 .u-text-3 {
-    margin-right: 192px;
-  }
 }
 
 @media (max-width: 991px) {
@@ -96,9 +114,14 @@
   .u-section-1 .u-text-1 {
     font-size: 2.25rem;
   }
+  
+    
+  .u-section-1 .u-container-layout-2 .u-layout-cell-2 {
+    padding: 0;
+  }
 
   .u-section-1 .u-text-3 {
-    margin-right: 85px;
+    font-size: 0.6rem;
   }
 }
 
@@ -121,10 +144,6 @@
   .u-section-1 .u-container-layout-1 {
     padding-left: 20px;
     padding-right: 20px;
-  }
-
-  .u-section-1 .u-text-3 {
-    margin-right: 29px;
   }
 }
 
@@ -163,7 +182,7 @@
 .u-section-2 .u-image-1 {
   width: 428px;
   min-height: 376px;
-  background-image: url("../img/fg_150.png");
+  background-image: url("../img/SPOTS.png");
   margin: -339px auto 0 calc(((100% - 1140px) / 2) + 259px);
 }
 
@@ -379,6 +398,12 @@
     width: 323px;
     height: 315px;
     margin-top: -374px;
+  }
+
+  .u-section-2 .u-image-3 {
+    width: 100px;
+    height: 100px;
+    margin: auto;
   }
 
   .u-section-2 .u-group-2 {
@@ -618,7 +643,7 @@
 
 .u-section-4 .u-image-1 {
   min-height: 602px;
-  background-image: url("../img/-min.jpg");
+  background-image: url("../img/Engagement-3.jpg");
   background-position: 50% 50%;
 }
 
@@ -720,49 +745,47 @@
 }
 
 .u-section-5 .u-sheet-1 {
-  min-height: 1285px;
+  min-height: 845px;
 }
 
 .u-section-5 .u-image-1 {
-  width: 628px;
-  height: 628px;
-  background-image: url("../img/rtettt-min.jpg");
+  width: 500px;
+  height: 500px;
+  background-image: url("../img/Homestead-1.jpg");
   background-position: 50% 50%;
-  margin: 60px 96px 0 auto;
+  margin: 0 120px 0 auto;
 }
 
 .u-section-5 .u-image-2 {
-  width: 276px;
-  height: 276px;
-  background-image: url("../img/bride-holds-beautiful-bridal-bouquet-close-up_8353-10474.jpg");
+  width: 200px;
+  height: 200px;
+  background-image: url("../img/Homestead-2.jpg");
   background-position: 50% 50%;
-  margin: -596px auto 0 71px;
+  margin: -496px auto 0 180px;
 }
 
 .u-section-5 .u-image-3 {
-  width: 389px;
-  height: 389px;
-  background-image: url("../img/rett.jpg");
+  width: 300px;
+  height: 300px;
+  background-image: url("../img/Homestead-3.jpg");
   background-position: 50% 50%;
-  margin: 50px auto 0 156px;
+  margin: 0 auto 0 360px;
 }
 
 .u-section-5 .u-shape-1 {
   width: 119px;
   height: 119px;
-  margin: -419px auto 0 20px;
+  margin: -340px auto 0 300px;
 }
 
 .u-section-5 .u-shape-2 {
   width: 250px;
   height: 250px;
-  margin: 39px 69px 0 auto;
+  margin: 109px 49px 0 auto;
 }
 
 .u-section-5 .u-group-1 {
-  min-height: 358px;
-  margin-top: 71px;
-  margin-bottom: 60px;
+  min-height: 100px;
 }
 
 .u-section-5 .u-container-layout-1 {
@@ -1155,7 +1178,7 @@
 
 .u-section-7 .u-image-1 {
   min-height: 206px;
-  background-image: url("../img/bride-holds-beautiful-bridal-bouquet-close-up_8353-10474.jpg");
+  background-image: url("../img/Engagement-29.jpg");
   background-position: 50% 50%;
 }
 
