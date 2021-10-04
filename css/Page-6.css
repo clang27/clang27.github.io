@@ -626,7 +626,8 @@
 }
 
 .u-section-4 .u-btn {
-  display: inline;
+  display: inline-block;
+  margin: 0 0 5px 0;
 }
 
 .u-section-4 .u-container-layout-2 {
