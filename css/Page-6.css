@@ -60,17 +60,24 @@
 }
 
 .u-section-1 .u-btn-2 {
-  background-color: #737c72 !important;
-  opacity: 0.5;
-  border-style: dashed;
+  background-color: #f3f05c !important;
+  border-style: solid;
   text-transform: uppercase;
   font-weight: 700;
+  width: 50%;
+  height: 100%;
   font-size: 0.875rem;
-  text-decoration: line-through;
-  font-style: italic;
-  letter-spacing: normal;
   padding: 10px 47px;
-  margin: 0;
+  margin: auto;
+  border-radius: 20px;
+  opacity: 0.9;
+}
+
+.u-section-1 .u-btn-2:hover {
+  background-color: #f3f05c !important;
+  font-weight: 800;
+  opacity: 1.0;
+  box-shadow: 5px 5px 5px lightgray;
 }
 
 @media (max-width: 1199px) {
@@ -151,6 +158,14 @@
 
   #slight-spacing {
       margin-top: 10px;
+  }
+
+  .u-section-1 .u-btn-2 {
+    font-size: 0.7rem;
+    padding: 5px 5px;
+    border-radius: 10px;
+    width: 90%;
+    margin: -15px 0px 15px 0px;
   }
 }
 
