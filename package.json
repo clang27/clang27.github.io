@@ -1,0 +1,23 @@
+{
+  "name": "kws-website",
+  "version": "0.0.1",
+  "description": "Website for Knitwit Studios",
+  "main": "index.js",
+  "dependencies": {
+    "three": "^0.138.0",
+    "troika-three-text": "^0.45.0"
+  },
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/KnitwitStudios/website.git"
+  },
+  "author": "Collin Lang",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/KnitwitStudios/website/issues"
+  },
+  "homepage": "https://github.com/KnitwitStudios/website#readme"
+}

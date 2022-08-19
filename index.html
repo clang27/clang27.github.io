@@ -1,15 +1,23 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta charset="utf-8">
-    <meta name="description" content="Collin and Jessi Lang's Wedding Page">
-    <meta name="page_type" content="np-template-header-footer-from-plugin">
-    <title>Collin &amp; Jessi</title>
-    <meta property="og:title" content="Collin and Jessi Wedding">
-    <meta property="og:type" content="website">
-  </head>
-  <body>
-	<script>window.location.replace("http://www.knitwitstudios.com");</script>
-  </body>
+	<head>
+		<meta charset="utf-8">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+		<meta name="description" content="We stitch games.">
+		<link rel="canonical" href="https://knitwitstudios.com/" />
+		<link rel="canonical" href="https://www.knitwitstudios.com/" />
+		<meta name="robots" content="index, follow">
+		<title>Knitwit Studios</title>
+		<link rel="stylesheet" href="styles.css">
+	</head>
+	<body>
+		<div id="loading-bar-container">
+			<p>Loading...</p><div id="loading-bar-foreground"></div>
+		</div>
+
+		<canvas id="yarn-ball"></canvas>
+		<div class="bottom-left"><span>Not loading?&nbsp;</span><a href="https://www.knitwitgames.com/">Go to Basic Homepage</a></div>
+		<div class="bottom-right"><div id="frame-counter"></div><input type="checkbox" id="fps-checkbox" name="show-fps"><label for="show-fps">&nbsp;Show FPS</label></div>
+	</body>
+	<script type="module" src="scripts/render.js"></script>
 </html>
