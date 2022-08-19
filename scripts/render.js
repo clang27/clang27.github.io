@@ -406,5 +406,5 @@ function onPointerUp(event) {
 }
 
 function goToWordpress(_index="") {
-    window.location.href = "https://www.knitwitgames.com/" + _index + "/";
+    window.location.href = "https://7xq.802.myftpupload.com/" + _index + "/";
 }
