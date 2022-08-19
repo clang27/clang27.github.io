@@ -25,8 +25,8 @@ const bottomRight = document.querySelector('.bottom-right');
 const renderer = new THREE.WebGLRenderer({canvas, antialias: true, alpha: true, powerPreference: (mobile) ? "high-performance" : "default" });
 renderer.autoClear = false;
 
-const frameClock = new THREE.Clock(false);
-const starClock = new THREE.Clock(false);
+const clock = new THREE.Clock();
+clock.getDelta();
 
 const scene = new THREE.Scene(), 
     sceneTwo = new THREE.Scene();
@@ -49,8 +49,8 @@ composer.addPass(renderPass);
 
 const controls = createControls();
 
-let yarns=[], moons=[], needle=undefined, joystick=undefined, starField=undefined;
-let flags = (new Array(TEXTURE.yarnTextures.length + TEXTURE.needleTextures.length + TEXT.banners.length + TEXT.links.length + MODEL.models.length)).fill(false)
+let yarns=[], moons=[], needle=undefined, joystick=undefined;
+let flags = (new Array(TEXTURE.yarnTextures.length + TEXTURE.needleTextures.length + TEXT.banners.length + TEXTURE.cubeTextures.length + TEXT.links.length + MODEL.models.length)).fill(false)
 let fps = 0, instancesOfBadFrames = 0;
 
 let linkToBounce = undefined;
@@ -100,8 +100,6 @@ function getReadyPercentage() {
 
 function init() {
     changeStyles();
-    frameClock.start();
-    starClock.start();
     
     yarns.push(MODEL.createYarnBall(2, KNITWIT_COLORS.PUMPKIN));
     yarns.push(MODEL.createYarnBall(1.9, KNITWIT_COLORS.PUMPKIN));
@@ -111,9 +109,9 @@ function init() {
 
     needle = MODEL.createNeedle(0xEADDCA);
     joystick = MODEL.createJoystick(KNITWIT_COLORS.CRIMSON);
-    starField = MODEL.createStarField(100);
 
-    scene.add(starField);
+    scene.background = TEXTURE.cubeTextures[0];
+
     yarns.forEach(yarn => scene.add(yarn));
     //yarns[0].rotateZ(Math.PI/4);
     //light.lookAt(yarns[0].position);
@@ -190,14 +188,13 @@ function render() {
     animateMoons();
     animateButton();
 
-    MODEL.updateStarField(starField, starClock.getElapsedTime(), getCanvasWidth(), getCanvasHeight(), controls.getPolarAngle());
-
     controls.update();
 
     renderer.clear();
     composer.render();
     renderer.clearDepth();
     renderer.render(sceneTwo, cameraTwo);
+    
     
     frameCount();
 };
@@ -245,13 +242,13 @@ function animateButton() {
     }
 }
 
-function frameCount(deltaTime) {
+function frameCount() {
     if (lagging) {return;}
 
     const frameCount = renderer.info.render.frame;
 
-    if(frameCount % 120 == 0) {
-        const currentFps = Math.ceil(5/frameClock.getDelta()*3);
+    if(frameCount % 40 == 0) {
+        const currentFps = Math.ceil(5/clock.getDelta());
         fps = currentFps;
         frameCounter.innerHTML = (fpsCheckbox.checked) ? "FPS: " + fps.toString() : "";
         instancesOfBadFrames = (fps < 20) ? instancesOfBadFrames + 1 : 0;
