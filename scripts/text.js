@@ -14,8 +14,7 @@ export let banners = [DefaultText(), DefaultText()];
 export let links = new Array(
     {text: 'games', mesh: undefined, clickmesh: undefined, defaultPos: new THREE.Vector3(0, 0, 2.2), size: 0.5, rotation: 0, color: KNITWIT_COLORS.CADMIUM_YELLOW},
     {text: 'about', mesh: undefined, clickmesh: undefined, defaultPos: new THREE.Vector3(-2.2, 0, 0), size: 0.5, rotation: 0, color: KNITWIT_COLORS.CADMIUM_YELLOW},
-    {text: 'community', mesh: undefined, clickmesh: undefined, defaultPos: new THREE.Vector3(2.2, 0, 0), size: 0.4, rotation: 0, color: KNITWIT_COLORS.CADMIUM_YELLOW},
-    {text: 'blogs', mesh: undefined, clickmesh: undefined, defaultPos: new THREE.Vector3(0, 0, -2.2), size: 0.5, rotation: 0, color: KNITWIT_COLORS.CADMIUM_YELLOW}
+    {text: 'contact', mesh: undefined, clickmesh: undefined, defaultPos: new THREE.Vector3(2.2, 0, 0), size: 0.4, rotation: 0, color: KNITWIT_COLORS.CADMIUM_YELLOW}
 );
 
 function DefaultText() {

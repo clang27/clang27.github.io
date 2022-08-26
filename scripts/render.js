@@ -5,6 +5,7 @@ import * as MODEL from './models.js';
 import * as KNITWIT_COLORS from './colors.js';
 import WebGL from '../dependencies/WebGL.js';
 import { OrbitControls } from '../dependencies/OrbitControls.js';
+import { OpenPanel, InPanel } from './panels.js';
 
 import { EffectComposer } from '../dependencies/EffectComposer.js';
 import { RenderPass } from '../dependencies/RenderPass.js';
@@ -15,12 +16,9 @@ import { UnrealBloomPass } from '../dependencies/UnrealBloomPass.js';
 const mobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
 const canvas = document.querySelector('#yarn-ball');
 const loadingBar = document.querySelector('#loading-bar-foreground');
-const frameCounter = document.querySelector('#frame-counter');
-const fpsCheckbox = document.querySelector('#fps-checkbox');
 const loadingBarContainer = document.querySelector('#loading-bar-container');
 const hpLink = document.querySelector('.bottom-left a');
 const hpParagraph = document.querySelector('.bottom-left span');
-const bottomRight = document.querySelector('.bottom-right');
 
 const renderer = new THREE.WebGLRenderer({canvas, antialias: true, alpha: true, powerPreference: (mobile) ? "high-performance" : "default" });
 renderer.autoClear = false;
@@ -78,7 +76,7 @@ if (WebGL.isWebGLAvailable()) {
 } else {
     loadingBar.style.width = '0%';
     document.querySelector('#loading-bar-container p').innerHTML = "WebGL is not available... redirecting!";
-    setTimeout(goToWordpress, 2000);
+    setTimeout(goToItch, 2000);
 }
 
 /***************Functions****************/
@@ -250,7 +248,6 @@ function frameCount() {
     if(frameCount % 40 == 0) {
         const currentFps = Math.ceil(5/clock.getDelta());
         fps = currentFps;
-        frameCounter.innerHTML = (fpsCheckbox.checked) ? "FPS: " + fps.toString() : "";
         instancesOfBadFrames = (fps < 20) ? instancesOfBadFrames + 1 : 0;
         if (instancesOfBadFrames > 3) {lagging = true; }
     }
@@ -331,7 +328,6 @@ function getCanvasHeight() {
 
 function changeStyles() {
     loadingBarContainer.remove();
-    bottomRight.style.visibility = 'visible';
     hpLink.style.color = '#ecece9';
     hpLink.style.textDecoration = 'none';
     hpParagraph.remove();
@@ -342,7 +338,7 @@ function checkPointer() {
     const intersects = raycaster.intersectObjects( scene.children, true );
     button.material.emissiveIntensity = 0.4; // Lazily added
 
-    if ( intersects.length > 0 ) {
+    if ( intersects.length > 0 && !InPanel) {
         if (intersects[0].object.uuid === button.uuid) {
             button.material.emissiveIntensity = 3; 
             return;
@@ -401,10 +397,14 @@ function onPointerUp(event) {
         if (button.material.emissiveIntensity == 3)
             buttonClicked = true;
         else if (linkToBounce)
-            goToWordpress(linkToBounce.text);
+            goToPanel(linkToBounce.text);
     }
 }
 
-function goToWordpress(_index="") {
-    window.location.href = "https://7xq.802.myftpupload.com/" + _index + "/";
+function goToPanel(_index="") {
+    OpenPanel(true, _index);
+}
+
+function goToItch(_index="") {
+    window.location.href = "https://knitwitstudios.itch.io/";
 }

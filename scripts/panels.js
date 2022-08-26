@@ -1,0 +1,87 @@
+const bottomLeft = document.querySelector('.bottom-left');
+const bottomRight = document.querySelector('.bottom-right');
+const blur = document.querySelector('.blur');
+const panel = document.querySelector('.panel');
+const panelHead = document.querySelector('.panel-head');
+const panelBody = document.querySelector('.panel-body');
+const close = document.querySelector('.close');
+const top = -100;
+
+close.onclick = ClosePanel;
+panel.style.top = String(top)+"%";
+
+let id = null;
+
+const about = {
+    title: 'About',
+    content: '<h1>Video games have a learning curve.</h1>\
+                <p>Our goal is to create easy-to-pick-up games that attract newcomers and engage veterans.</p>\
+                <br/><br/><br/><h1 class="middle-title-large">Who are we?</h1>\
+                <div class="card-container"><div class="card card3"><a href="https://www.linkedin.com/in/clang27/" target="_blank"><img src="img/collin_hs.jpg" alt="Collin Lang headshot"\></a><h2>Collin Lang</h2><h6>Human</h6></div>\
+                <div class="card card3"><img src="img/charles_hs.jpg" alt="Charles Lang headshot"\><h2>Charles Lang</h2><h6>Chief Financial Officer</h6></div>\
+                <div class="card card3"><img src="img/samson_hs.jpg" alt="Samson Lang headshot"\><h2>Samson Lang</h2><h6>Human Resources</h6></div>\
+                </div>',
+}
+
+const games = {
+    title: 'Games',
+    content: '<div class="feature"><div class="feature-picture"><a href="https://knitwitstudios.itch.io/sara-of-tonin" target="_blank"><img src="img/games/sot.png" alt="Sara of Tonin cover"\></a></div><div class="feature-body"><h2>Sara of Tonin</h2><p>Our top-8 submission to DeepwellDTX\'s 1st Annual May Day Mental Health Game Jam!</p></div></div>\
+            <br/><hr/><br/><div class="card-container">\
+                <div class="card card4"><a href="https://knitwitstudios.itch.io/tortoise-island" target="_blank"><img src="img/games/ti.png" alt="Tortoise Island cover"\></a><h2>Tortoise Island</h2><h6>A casual 3D first-person shooter</h6></div>\
+                <div class="card card4"><a href="https://knitwitstudios.itch.io/foxtrot-bunny" target="_blank"><img src="img/games/fb.png" alt="Foxtrot Bunny cover"\></a><h2>Foxtrot Bunny</h2><h6>An over-the-top shoot-em-up</h6></div>\
+                <div class="card card4"><a href="https://knitwitstudios.itch.io/lost-diver" target="_blank"><img src="img/games/ld.png" alt="Lost Diver cover"\></a><h2>Lost Diver</h2><h6>A difficult survival platformer</h6></div>\
+                <div class="card card4"><a href="https://knitwitstudios.itch.io/slice-of-ice" target="_blank"><img src="img/games/soi.png" alt="Slice of Ice cover"\></a><h2>Slice of Ice</h2><h6>A simple arcade balance game</h6></div>\
+            </div>',
+}
+
+const contact = {
+    title: 'Contact',
+    content: '<h3>Want to subscribe to any news we post?</h3>\
+                <h3>Want to collaborate or playtest with us?</h3>\
+                <h3>Want to ask us a question?</h3><br/>\
+                <h1 class="middle-title-large">Reach out to us!</h1>\
+                <h2 class="middle-title-medium"><a href="mailto:knitwitgame@gmail.com">knitwitgame@gmail.com</a></h2>',
+}
+
+const panelInfo = [about, games, contact];
+
+export let InPanel = false;
+
+export function OpenPanel(_open, _index="") {
+    InPanel = _open;
+    let pos = (!_open) ? 4 : top;
+    let rate = 2;
+
+    if (_open) {
+        blur.style.display = "Block";
+        bottomRight.style.visibility = "Hidden";
+        bottomLeft.style.visibility = "Hidden";
+
+        const info = panelInfo.find(info => info.title.toLowerCase() === _index.toLowerCase());
+        panelHead.innerHTML = info.title;
+        panelBody.innerHTML = info.content;
+    }
+
+    clearInterval(id);
+    id = setInterval(MoveVertical, 5, !_open);
+
+    function MoveVertical(_close) {
+        if ((_close && pos < top) || (!_close && pos > 4)) {
+            panel.style.top = (_close) ? String(top)+"%" : "4%";
+            if (_close) {
+                blur.style.display = "None";
+                bottomRight.style.visibility = "Visible";
+                bottomLeft.style.visibility = "Visible";
+            }
+            clearInterval(id);
+        } else {
+            pos += (_close) ? -rate : rate;
+            rate /= (rate > 0.2) ? 1.02 : 1;
+            panel.style.top = String(pos)+"%";
+        }
+    }
+}
+
+function ClosePanel() {
+    OpenPanel(false);
+}

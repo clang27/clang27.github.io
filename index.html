@@ -9,15 +9,29 @@
 		<meta name="robots" content="index, follow">
 		<title>Knitwit Studios</title>
 		<link rel="stylesheet" href="styles.css">
+		<script type="module" src="scripts/panels.js"></script>
 	</head>
 	<body>
 		<div id="loading-bar-container">
 			<p>Loading...</p><div id="loading-bar-foreground"></div>
 		</div>
-
 		<canvas id="yarn-ball"></canvas>
-		<div class="bottom-left"><span>Not loading?&nbsp;</span><a href="https://7xq.802.myftpupload.com/">Go to Basic Homepage</a></div>
-		<div class="bottom-right"><div id="frame-counter"></div><input type="checkbox" id="fps-checkbox" name="show-fps"><label for="show-fps">&nbsp;Show FPS</label></div>
+		<div class="bottom-left"><span>Not loading?&nbsp;</span><a href="https://knitwitstudios.itch.io/">Go to Basic Homepage</a></div>
+		<div class="bottom-right">
+			<a href="https://discord.gg/deW2PJenRc/" target="_blank"><img src="img/social/discord.png" alt="Discord Social Icon"/></a>
+			<a href="https://knitwitstudios.itch.io/" target="_blank"><img src="img/social/itch.png" alt="Itch Social Icon"/></a>
+			<a href="https://www.instagram.com/knitwitstudios/" target="_blank"><img src="img/social/instagram.png" alt="Instagram Social Icon"/></a>
+			<a href="https://twitter.com/KnitwitGames/" target="_blank"><img src="img/social/twitter.png" alt="Twitter Social Icon"/></a>
+		</div>
+		<div class="blur">
+			<div class="panel">
+				<button class="close">X</button>
+				<h2 class="panel-head">About</h2>
+				<hr/>
+				<div class="panel-body"></div>
+			</div>
+		</div>
+
 	</body>
 	<script type="module" src="scripts/render.js"></script>
 </html>
