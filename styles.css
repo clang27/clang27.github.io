@@ -359,6 +359,14 @@ a img:hover {
 }
 
 @media all and (max-width: 700px) {
+    .panel {
+        padding: 2% 4%;
+    }
+
+    .panel-head {
+        font-size: 1.2rem;
+    }
+
     .panel-body {
         text-align: justify;
         font-size: 1rem;
@@ -429,8 +437,8 @@ a img:hover {
     
 }
 
-@media all and (max-width: 700px) {
+@media all and (max-height: 700px) {
     .panel-body {
-        height: 70%;
+        height: 73%;
     }
 }
