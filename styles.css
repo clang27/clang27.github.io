@@ -436,9 +436,3 @@ a img:hover {
     }
     
 }
-
-@media all and (max-height: 700px) {
-    .panel-body {
-        height: 73%;
-    }
-}
