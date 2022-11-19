@@ -110,7 +110,13 @@ body, html {
     height: 100%;
 }
 
-.card4 img {
+.card6 {
+    width: 16.67%;
+    padding: 0% 1% 20px 1%;
+    height: 100%;
+}
+
+.card6 img {
     box-shadow: -2px 2px 3px #030303;
 }
 
@@ -123,33 +129,29 @@ body, html {
 
 .feature {
     display: flex;
-    width: 100%;
+    width: 90%;
+    margin-left: 5%;
+}
+
+.feature iframe {
+    display: inline-block;
+    width: 45%;
+    margin-left: 5%;
 }
 
 .feature-picture {
-    width: 25%;
+    width: 45%;
     display: inline-block;
 }
 
 .feature img {
     width: 100%;
-    box-shadow: -2px 2px 5px #030303;
 }
 
 a img:hover {
     filter: brightness(0.5);
     transform: translate(-2px, 2px);
     box-shadow: 0px 0px;
-}
-
-.feature-body {
-    padding: 0% 2%;
-    width: 75%;
-    display: inline-block;
-}
-
-.feature-body h1, .feature-body h2, .feature-body p {
-    text-align: left;
 }
 
 .card h6 {
@@ -166,15 +168,15 @@ a img:hover {
     margin-bottom: 15px
 }
 
-.card4 img {
+.card4 img, .card6 img {
     border-radius: 5px;
     width: 100%;
     margin-bottom: 15px
 }
 
 .card-container {
-    width: 80%;
-    margin-left: 10%;
+    width: 90%;
+    margin-left: 5%;
     display: flex;
 }
 
@@ -417,22 +419,22 @@ a img:hover {
         display: block;
     }
 
-    .card3, .card4 {
+    .card3, .card4, .card6 {
         width: 100%;
+    }
+
+    .feature {
+        width: 100%;
+        margin: 0;
     }
 
     .feature-picture {
         width: 100%;
-    }
-    
-    .feature-body {
-        width: 100%;
-        padding-top: 10px;
-        text-align: right;
+        margin: 0;
     }
 
-    .feature-body h2 {
-        text-align: right;
+    .feature iframe {
+        width: 100%;
+        margin: 0;
     }
-    
 }
