@@ -25,18 +25,14 @@ const about = {
 
 const games = {
     title: 'Games',
-    content: '<div id="Games"><div class="feature"><div class="feature-picture"><a href="https://knitwitstudios.itch.io/across-stitch" target="_blank"><img src="img/logo2Itch.png" alt="Across-stitch logo"\></a></div>\
-            <iframe width="560" height="315" src="https://www.youtube.com/embed/GKt1mDOaK9k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe></div>\
-            <br/><hr/><br/>\
-            <h2 style="text-align: center;">Our top, free \"jam\" games</h2>\
-            <div class="card-container">\
-                <div class="card card6"><a href="https://knitwitstudios.itch.io/tilt" target="_blank"><img src="img/games/tilt.png" alt="Tilt cover"\></a><h2>Tilt</h2><h6>An arcade twist on pinball</h6></div>\
-                <div class="card card6"><a href="https://knitwitstudios.itch.io/strawbebe" target="_blank"><img src="img/games/sb.png" alt="Straw-Bebe cover"\></a><h2>Straw-Bebe</h2><h6>A platform puzzler made for the Game Boy</h6></div>\
-                <div class="card card6"><a href="https://knitwitstudios.itch.io/sara-of-tonin" target="_blank"><img src="img/games/sot.png" alt="Sara of Tonin cover"\></a><h2>Sara of Tonin</h2><h6>An adventure to raise mental health awareness</h6></div>\
-                <div class="card card6"><a href="https://knitwitstudios.itch.io/tortoise-island" target="_blank"><img src="img/games/ti.png" alt="Tortoise Island cover"\></a><h2>Tortoise Island</h2><h6>A casual 3D first-person shooter</h6></div>\
-                <div class="card card6"><a href="https://knitwitstudios.itch.io/foxtrot-bunny" target="_blank"><img src="img/games/fb.png" alt="Foxtrot Bunny cover"\></a><h2>Foxtrot Bunny</h2><h6>An over-the-top shoot-em-up</h6></div>\
-                <div class="card card6"><a href="https://knitwitstudios.itch.io/slice-of-ice" target="_blank"><img src="img/games/soi.png" alt="Slice of Ice cover"\></a><h2>Slice of Ice</h2><h6>A simple arcade balance game</h6></div>\
-            </div></div>',
+    content: '<div id="Games">\
+              <iframe id="youtube" width="560" height="315" src="https://www.youtube.com/embed/GKt1mDOaK9k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>\
+              <div class="badge-row">\
+              <a href="https://play.google.com/store/apps/details?hl=en&id=com.knitwitstudios.acrossstitch" target="_blank"><img src="img/market/google.png" alt="Google Play badge"></a>\
+              <a href="https://apps.apple.com/us/app/across-stitch/id1664928966?uo=4" target="_blank"><img src="img/market/apple.png" alt="Apple Store badge"></a>\
+              <a href="https://knitwitstudios.itch.io/across-stitch" target="_blank"><img src="img/market/itch.png" alt="Itch.io badge"></a>\
+              </div>\
+              </div>',
 }
 
 const contact = {
@@ -61,6 +57,7 @@ export function OpenPanel(_open, _index="") {
     panelInfo.forEach(info => document.querySelector('#' + info.title).style.display = "None");
 
     if (_open) {
+        panelHead.innerHTML = _index;
         blur.style.display = "Block";
         bottomRight.style.visibility = "Hidden";
         bottomLeft.style.visibility = "Hidden";

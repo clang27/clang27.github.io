@@ -19,7 +19,7 @@ body, html {
 
 @font-face {
     font-family: 'Patchwork';
-    src: url('./fonts/2d/Patchwork\ Stitchlings\ Color.ttf');
+    src: url('./fonts/2d/Patchwork Stitchlings Color.ttf');
 }
 
 @font-face {
@@ -133,10 +133,27 @@ body, html {
     margin-left: 5%;
 }
 
-.feature iframe {
+#youtube {
+    width: 41.5vw;
+    height: 23.4vw;
+    margin: 0px auto 50px auto;
+    display: block;
+}
+
+.badge-row {
+    display: flex;
+    width: 100%;
+}
+
+.badge-row a {
     display: inline-block;
-    width: 45%;
-    margin-left: 5%;
+    width: 29%;
+    margin: 0% 2%;
+}
+
+.badge-row img {
+    display: inline-block;
+    width: 100%;
 }
 
 .feature-picture {
@@ -441,13 +458,24 @@ a img:hover {
         margin: 0;
     }
 
-    .feature iframe {
-        width: 100%;
-        margin: 0;
-    }
-
     .middle-title-box {
         width: 92%;
         padding: 40px 1% 30px 1%;
+    }
+
+    #youtube {
+        width: 65vw;
+        height: 37vw;
+        margin: 0px auto 30px auto;
+    }
+
+    .badge-row {
+        display: block;
+        margin: auto;
+        width: 60%;
+    }
+
+    .badge-row a {
+        width: 100%;
     }
 }
