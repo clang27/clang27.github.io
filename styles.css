@@ -371,6 +371,15 @@ a img:hover {
     padding: 40px 0px 30px 0px;
 }
 
+#kofiframe {
+    display: block;
+    border:solid #111528 4px;
+    width:80%;
+    padding:10px;
+    margin: 30px auto 0px auto;
+    background:#FFFCC2;
+}
+
 @media all and (max-width: 500px) {
     #loading-bar-container {
         background-color: lightgray;
@@ -385,6 +394,8 @@ a img:hover {
 
 @media all and (max-width: 700px) {
     .panel {
+        left: 5%;
+        right: 5%;
         padding: 2% 4%;
     }
 
@@ -459,8 +470,9 @@ a img:hover {
     }
 
     .middle-title-box {
-        width: 92%;
-        padding: 40px 1% 30px 1%;
+        border: dotted #FFFCC2 3px;
+        width: 100%;
+        padding: 20px 0% 10px 0%;
     }
 
     #youtube {
@@ -477,5 +489,13 @@ a img:hover {
 
     .badge-row a {
         width: 100%;
+    }
+
+    #kofiframe {
+        border:solid #111528 2px;
+        width:94%;
+        height: 300px;
+        padding:0px;
+        margin: 20px auto 10px auto;
     }
 }

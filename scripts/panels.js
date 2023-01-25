@@ -40,7 +40,7 @@ const contact = {
     content: '<div id="Contact">\
                 <div class="middle-title-box"><h1 class="middle-title-large">Reach out to me!</h1><br/>\
                 <h2 class="middle-title-medium"><a href="mailto:knitwitgame@gmail.com">knitwitgame@gmail.com</a></h2>\
-                <iframe id=\'kofiframe\' src=\'https://ko-fi.com/knitwitstudios/?hidefeed=true&widget=true&embed=true&preview=true\' style=\'display: block; border:solid #111528 4px; width:80%; padding:10px; margin: 30px auto 0px auto; background:#FFFCC2;\' height=\'356\' title=\'knitwitstudios\'></iframe>\
+                <iframe id=\'kofiframe\' src=\'https://ko-fi.com/knitwitstudios/?hidefeed=true&widget=true&embed=true&preview=true\' height=\'356\' title=\'knitwitstudios\'></iframe>\
                 </div>\
                 </div>',
 }
