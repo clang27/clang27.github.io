@@ -33,9 +33,9 @@ function unityShowBanner(msg, type) {
 var buildUrl = "Build";
 var loaderUrl = buildUrl + "/Mushwhom.loader.js";
 var config = {
-	dataUrl: buildUrl + "/Mushwhom.data.br",
-	frameworkUrl: buildUrl + "/Mushwhom.framework.js.br",
-	codeUrl: buildUrl + "/Mushwhom.wasm.br",
+	dataUrl: buildUrl + "/Mushwhom.data",
+	frameworkUrl: buildUrl + "/Mushwhom.framework.js",
+	codeUrl: buildUrl + "/Mushwhom.wasm",
 	streamingAssetsUrl: "StreamingAssets",
 	companyName: "Knitwit Studios",
 	productName: "Mushwhom",
