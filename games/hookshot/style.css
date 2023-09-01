@@ -1,0 +1,21 @@
+#click-here {
+	display: block;
+	background-color: black;
+	position: absolute;
+	left: 50%; 
+	top: 50%; 
+	width: 960px;
+	height: 540px;
+	transform: translate(-50%, -50%);
+	border-radius: 20px;
+}
+
+#click-here p {
+	text-decoration: underline;
+	font-size: 24pt;
+	color: white;
+	text-align: center;
+	vertical-align: middle;
+	height: 100%;
+	transform: translate(0%, 35%)
+}
