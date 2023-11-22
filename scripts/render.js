@@ -266,7 +266,7 @@ function animateText() {
     }
 
     if (linksToReset.length > 0) {
-        delta *= 1.009;
+        delta *= 1.015;
 
         linksToReset.forEach(link => {
             link.mesh.position.lerp(link.defaultPos, delta);

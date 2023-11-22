@@ -179,6 +179,11 @@ a img:hover {
     font-family: 'RalewayItalic';
 }
 
+.collin-card img {
+    border-radius: 250px;
+    width: 100%;
+}
+
 .card3 img {
     border-radius: 200px;
     width: 100%;
@@ -364,20 +369,41 @@ a img:hover {
 }
 
 .middle-title-box {
-    border: dotted #FFFCC2 6px;
-    border-radius: 20px;
-    width: 50%;
+    border: dotted #FFFCC2 8px;
+    border-radius: 40px;
+    width: 55%;
     margin: auto;
+    margin-top: 20px;
     padding: 40px 0px 30px 0px;
+    background-color: #FFFCC222;
 }
 
-#kofiframe {
+.left-half-container, .right-half-container {
+    margin-top: 1%;
     display: block;
-    border:solid #111528 4px;
-    width:80%;
-    padding:10px;
-    margin: 30px auto 0px auto;
-    background:#FFFCC2;
+    height: 99%
+}
+
+.left-half-container {
+    margin-left: 3%;
+    width: 30%;
+    float: left;
+}
+
+.collin-card {
+    width: 80%;
+    height: 100%;
+    margin: 2em 0 0 20%;
+}
+
+.right-half-container {
+    margin-right: 5%;
+    margin-top: 5em;
+    width: 50%;
+    float: right;
+    text-align: right;
+    background-color: #FFFCC211;
+    padding: 2em 1em 2em 1em;
 }
 
 @media all and (max-width: 500px) {
@@ -444,7 +470,7 @@ a img:hover {
 
     .middle-title-large {
         font-size: 1.8rem;
-        margin-bottom: 0px !important;
+        margin-bottom: 0 !important;
     }
 
     .middle-title-medium {
@@ -490,12 +516,25 @@ a img:hover {
     .badge-row a {
         width: 100%;
     }
+}
 
-    #kofiframe {
-        border:solid #111528 2px;
-        width:94%;
-        height: 300px;
-        padding:0px;
-        margin: 20px auto 10px auto;
+@media all and (max-width: 900px) {
+    .left-half-container, .right-half-container {
+        height: 50%;
+        width: 100%;
+        float: none;
+        margin: 0;
+        font-size: 1.4rem;
+    }
+
+    .collin-card {
+        width: 60%;
+        margin: 2em 0 0 30%;
+    }
+
+    .right-half-container {
+        margin-top: 20px;
+        width: 96%;
+        padding: 2%;
     }
 }

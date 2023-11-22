@@ -14,14 +14,12 @@ let id = null;
 
 const about = {
     title: 'About',
-    content: '<div id="About"><h1>Video games have a learning curve.</h1>\
-                <p>Our goal is to create easy-to-pick-up games that attract newcomers and engage veterans.</p>\
-                <br/><br/><br/><h1 class="middle-title-large">Who are we?</h1>\
-                <div class="card-container"><div class="card card3"><a href="https://www.linkedin.com/in/clang27/" target="_blank"><img src="img/collin_hs.jpg" alt="Collin Lang headshot"\></a><h2>Collin Lang</h2><h6>Human</h6></div>\
-                <div class="card card3"><img src="img/charles_hs.jpg" alt="Charles Lang headshot"\><h2>Charles Lang</h2><h6>Chief Financial Officer</h6></div>\
-                <div class="card card3"><img src="img/samson_hs.jpg" alt="Samson Lang headshot"\><h2>Samson Lang</h2><h6>Human Resources</h6></div>\
-                </div></div>',
-}
+    content: '<div id="About"><div class="left-half-container"><h1>Hi, my name is Collin!</h1>\
+                <div class="collin-card"><a href="https://www.linkedin.com/in/clang27/" target="_blank"><img src="img/collin_hs.jpg" alt="Collin Lang headshot"\></a></div></div>\
+                <div class="right-half-container"><p>Although it says "Studios", <strong>Knitwit Studios</strong>\
+                 is just me. I created it as a place to publish all of my games - whether they are for jams, market, or fun!</p><br/><br/><br/>\
+                <p>My primary skill is programming.<br/>I use <strong>Unity</strong> and <strong>GameMaker Studio</strong> to create my games.</p>\</div>',
+    }
 
 const games = {
     title: 'Games',
@@ -39,9 +37,7 @@ const contact = {
     title: 'Contact',
     content: '<div id="Contact">\
                 <div class="middle-title-box"><h1 class="middle-title-large">Reach out to me!</h1><br/>\
-                <h2 class="middle-title-medium"><a href="mailto:knitwitgame@gmail.com">knitwitgame@gmail.com</a></h2>\
-                <iframe id=\'kofiframe\' src=\'https://ko-fi.com/knitwitstudios/?hidefeed=true&widget=true&embed=true&preview=true\' height=\'356\' title=\'knitwitstudios\'></iframe>\
-                </div>\
+                <h2 class="middle-title-medium"><a href="mailto:knitwitgame@gmail.com">knitwitgame@gmail.com</a></h2></div>\
                 </div>',
 }
 
@@ -53,7 +49,7 @@ export let InPanel = false;
 export function OpenPanel(_open, _index="") {
     InPanel = _open;
     let pos = (!_open) ? 4 : top;
-    let rate = 2;
+    let rate = 2.2;
 
     panelInfo.forEach(info => document.querySelector('#' + info.title).style.display = "None");
 
