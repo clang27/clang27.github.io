@@ -520,11 +520,16 @@ a img:hover {
 
 @media all and (max-width: 900px) {
     .left-half-container, .right-half-container {
+        line-height: 1.8rem;
         height: 50%;
         width: 100%;
         float: none;
         margin: 0;
         font-size: 1.4rem;
+    }
+
+    .left-half-container h1 {
+        line-height: 3rem;
     }
 
     .collin-card {
