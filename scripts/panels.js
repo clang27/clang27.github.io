@@ -19,7 +19,7 @@ const about = {
                 <div class="right-half-container"><p><strong>Knitwit Studios</strong>\
                  is just me. I created it as a place to publish all of my games - whether they are for jams, market, or fun!</p><br/><br/>\
                 <p>I believe video games should be enjoyed by both casual and non-casual players. If I can have an inexperienced gamer try one of my games and enjoy it, I consider that a victory.</p><br/><br/>\
-                <p>I wear many hats while making a game, but my primary focus is in programming. <strong>Unity</strong> and <strong>GameMaker Studio</strong> are the two game engines I use for development.</p>\</div>',
+                <p>I wear many hats, but my primary focus is in programming. <strong>Unity</strong> and <strong>GameMaker Studio</strong> are the two game engines I use for development.</p>\</div>',
     }
 
 const games = {
