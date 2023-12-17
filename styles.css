@@ -147,13 +147,19 @@ body, html {
 
 .badge-row a {
     display: inline-block;
-    width: 29%;
-    margin: 0% 2%;
+    width: 48%;
+    margin: 0 2%;
 }
 
-.badge-row img {
+#Games img {
     display: inline-block;
     width: 100%;
+}
+
+#itch {
+    width: 36%;
+    margin: 3rem 32% 0 32%;
+    display: inline-block;
 }
 
 .feature-picture {
@@ -379,13 +385,13 @@ a img:hover {
 }
 
 .left-half-container, .right-half-container {
-    margin-top: 1%;
+    margin-top: 2%;
     display: block;
     height: 99%
 }
 
 .left-half-container {
-    margin-left: 3%;
+    margin-left: 4%;
     width: 30%;
     float: left;
 }
@@ -510,11 +516,16 @@ a img:hover {
     .badge-row {
         display: block;
         margin: auto;
-        width: 60%;
+        width: 90%;
     }
 
     .badge-row a {
         width: 100%;
+    }
+
+    #itch {
+        width: 80%;
+        margin: 2rem 10% 0 10%;
     }
 }
 
@@ -538,7 +549,7 @@ a img:hover {
     }
 
     .right-half-container {
-        margin-top: 20px;
+        margin-top: 3rem;
         width: 96%;
         padding: 2%;
     }

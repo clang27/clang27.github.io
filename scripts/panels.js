@@ -16,20 +16,20 @@ const about = {
     title: 'About',
     content: '<div id="About"><div class="left-half-container"><h1>Hi, my name is Collin!</h1>\
                 <div class="collin-card"><a href="https://www.linkedin.com/in/clang27/" target="_blank"><img src="img/collin_hs.jpg" alt="Collin Lang headshot"\></a></div></div>\
-                <div class="right-half-container"><p>Although it says "Studios", <strong>Knitwit Studios</strong>\
-                 is just me. I created it as a place to publish all of my games - whether they are for jams, market, or fun!</p><br/><br/><br/>\
-                <p>My primary skill is programming.<br/>I use <strong>Unity</strong> and <strong>GameMaker Studio</strong> to create my games.</p>\</div>',
+                <div class="right-half-container"><p><strong>Knitwit Studios</strong>\
+                 is just me. I created it as a place to publish all of my games - whether they are for jams, market, or fun!</p><br/><br/>\
+                <p>I believe video games should be enjoyed by both casual and non-casual players. If I can have an inexperienced gamer try one of my games and enjoy it, I consider that a victory.</p><br/><br/>\
+                <p>I wear many hats while making a game, but my primary focus is in programming. <strong>Unity</strong> and <strong>GameMaker Studio</strong> are the two game engines I use for development.</p>\</div>',
     }
 
 const games = {
     title: 'Games',
     content: '<div id="Games">\
-              <iframe id="youtube" width="560" height="315" src="https://www.youtube.com/embed/GKt1mDOaK9k" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>\
               <div class="badge-row">\
-              <a href="https://play.google.com/store/apps/details?hl=en&id=com.knitwitstudios.acrossstitch" target="_blank"><img src="img/market/google.png" alt="Google Play badge"></a>\
-              <a href="https://apps.apple.com/us/app/across-stitch/id1664928966?uo=4" target="_blank"><img src="img/market/apple.png" alt="Apple Store badge"></a>\
-              <a href="https://knitwitstudios.itch.io/across-stitch" target="_blank"><img src="img/market/itch.png" alt="Itch.io badge"></a>\
+              <a href="https://knitwitstudios.itch.io/across-stitch" target="_blank"><img src="img/games/across-stitch.png" alt="Across-Stitch logo"></a>\
+              <a href="https://criticalthinker.games/mushwhom.html" target="_blank"><img src="img/games/mushwhom.png" alt="Mushwhom? logo"></a>\
               </div>\
+              <a id="itch" href="https://knitwitstudios.itch.io" target="_blank"><img style="width: 100%;" src="img/market/itch.png" alt="Itch.io badge"></a>\
               </div>',
 }
 
