@@ -521,7 +521,7 @@ a img:hover {
     .badge-row {
         display: block;
         margin: auto;
-        width: 90%;
+        width: 100%;
     }
 
     .badge-row a {
