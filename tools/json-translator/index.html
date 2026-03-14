@@ -6,174 +6,171 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>English to Spanish Translator</title>
   <link rel="stylesheet" href="css/style.css">
-  <meta name="description" content="">
-
-  <meta property="og:title" content="">
-  <meta property="og:type" content="">
-  <meta property="og:url" content="">
-  <meta property="og:image" content="">
-  <meta property="og:image:alt" content="">
-
   <meta name="theme-color" content="#fafafa">
 </head>
 
 <body>
-  <div id="container">
-    <h3>Guardrails</h3>
-    <ul>
-      <li>If a word/phrase is inside "< >", the translation will also need to put inside "< >". </li>
-      <li>If a word/phrase is inside two "#"'s, do not translate but still include it in the text on the right-side.</li>
-    </ul>
-    <hr/>
-    <table id="translations">
-      <thead>
-      <tr>
-        <th>English</th>
-        <th>Spanish</th>
-      </tr>
-      </thead>
-      <tbody></tbody>
-    </table>
-    <input type="button" id="generate" onclick="generateOutputFile()" value="Create Translation File">
-  </div>
+<div id="container">
+  <h3>Notes &amp; Guardrails</h3>
+  <ul>
+    <li>This page saves a cookie for each translation so that one can quit, come back, and the translations will be saved. Cookies are stored for 7 days.</li>
+    <li>Ignore the blank English text areas. That is showing there is some empty dialogue.</li>
+    <li>If a word/phrase is inside "< >", the translation will also need to put inside "< >". </li>
+    <li>If a word/phrase is inside two "#"'s, do not translate but still include it in the text on the right-side.</li>
+  </ul>
+  <hr/>
+  <table id="translations">
+    <thead>
+    <tr>
+      <th>English</th>
+      <th>Spanish</th>
+    </tr>
+    </thead>
+    <tbody></tbody>
+  </table>
+  <input type="button" id="generate" onclick="generateOutputFile()" value="Create Translation File">
+</div>
 
-  <script type="module">
-    const inputResource = await fetch("./json/input.json");
-    const inputJson = await inputResource.json();
-    const textKey = "text";
+<script type="module">
+  // This is the input JSON file that we are translating
+  const inputResource = await fetch("./json/input.json");
+  const inputJson = await inputResource.json();
 
-    function collectTextFields(obj, results = []) {
-      if (Array.isArray(obj)) {
-        for (const item of obj) {
-          collectTextFields(item, results);
+  // This is what we are translating. Everything that has a "text" field will be translated
+  const textKey = "text";
+
+  function collectTextFields(obj, results = []) {
+    if (Array.isArray(obj)) {
+      for (const item of obj) {
+        collectTextFields(item, results);
+      }
+    }
+    else if (obj !== null && typeof obj === "object") {
+      for (const [key, value] of Object.entries(obj)) {
+        if (key === textKey) {
+          results.push(value);
         }
-      }
-      else if (obj !== null && typeof obj === "object") {
-        for (const [key, value] of Object.entries(obj)) {
-          if (key === textKey) {
-            results.push(value);
-          }
-          collectTextFields(value, results);
-        }
-      }
-
-      return results;
-    }
-
-    function replaceTextFields(obj, values) {
-      let index = 0;
-      function recurse(node) {
-        if (Array.isArray(node)) {
-          node.forEach(recurse);
-        }
-        else if (node !== null && typeof node === "object") {
-          for (const key in node) {
-            if (key === textKey) {
-              node[key] = values[index] ?? node[key];
-              index++;
-            } else {
-              recurse(node[key]);
-            }
-          }
-        }
-      }
-
-      recurse(obj);
-
-      return obj;
-    }
-
-    function downloadJson(jsonString, filename) {
-      try {
-        const formattedJSON = JSON.stringify(jsonString, null, 2);
-        const blob = new Blob([formattedJSON], { type: "application/json" });
-        const timestamp = new Date().toLocaleTimeString().replace(/[:. ]/g, "_");
-        const finalName = `${filename}_${timestamp}.json`;
-
-        const url = URL.createObjectURL(blob);
-        const a = document.createElement("a");
-        a.href = url;
-        a.download = finalName;
-
-        document.body.appendChild(a);
-        a.click();
-
-        document.body.removeChild(a);
-        URL.revokeObjectURL(url);
-      } catch (error) {
-        console.error(error);
+        collectTextFields(value, results);
       }
     }
 
-    function getAllInputTextFields() {
-      return collectTextFields(inputJson);
-    }
+    return results;
+  }
 
-    function setCookie(name, value, days) {
-      const date = new Date();
-      date.setTime(date.getTime() + (days*24*60*60*1000));
-      const expires = "expires=" + date.toUTCString();
-      document.cookie = name + "=" + encodeURIComponent(value) + ";" + expires + ";path=/";
-    }
-
-    function getCookie(name) {
-      const nameEQ = name + "=";
-      const cookies = document.cookie.split(';');
-      for(let i = 0; i < cookies.length; i++) {
-        let c = cookies[i].trim();
-        if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length));
-      }
-      return "";
-    }
-
-    const englishPhrases = getAllInputTextFields();
-    const spanishPhrases = [...englishPhrases];
-
-    const tbody = document.querySelector("#translations tbody");
+  function replaceTextFields(obj, values) {
     let index = 0;
-
-    englishPhrases.forEach(englishPhrase => {
-      const row = document.createElement("tr");
-
-      const col1 = document.createElement("td");
-      const englishTextArea = document.createElement("textarea");
-      englishTextArea.value = englishPhrase;
-      englishTextArea.disabled = true;
-      englishTextArea.rows = 5;
-      col1.appendChild(englishTextArea);
-
-      const col2 = document.createElement("td");
-      const spanishTextArea = document.createElement("textarea");
-      spanishTextArea.rows = 5;
-      spanishTextArea.name = index.toString();
-      spanishTextArea.value = getCookie("Spanish_Translation_" + index.toString());
-      spanishPhrases[index] = spanishTextArea.value;
-
-      // Some text is blank, but we want to render it because it keeps the order and index of the translations
-      if (englishPhrase.trim().length === 0) {
-        spanishTextArea.disabled = true;
-      } else {
-        spanishTextArea.onchange = () => {
-          const spanishIndex = Number.parseInt(spanishTextArea.name);
-          spanishPhrases[spanishIndex] = spanishTextArea.value;
-          setCookie("Spanish_Translation_" + spanishIndex.toString(), spanishTextArea.value, 7); // cookie expires in 7 days
+    function recurse(node) {
+      if (Array.isArray(node)) {
+        node.forEach(recurse);
+      }
+      else if (node !== null && typeof node === "object") {
+        for (const key in node) {
+          if (key === textKey) {
+            node[key] = values[index] ?? node[key];
+            index++;
+          } else {
+            recurse(node[key]);
+          }
         }
       }
+    }
 
-      col2.appendChild(spanishTextArea);
+    recurse(obj);
 
-      row.appendChild(col1);
-      row.appendChild(col2);
-      tbody.appendChild(row);
+    return obj;
+  }
 
-      index++;
-    });
+  function downloadJson(jsonString, filename) {
+    try {
+      const formattedJSON = JSON.stringify(jsonString, null, 2);
+      const blob = new Blob([formattedJSON], { type: "application/json" });
+      const timestamp = new Date().toLocaleTimeString().replace(/[:. ]/g, "_");
+      const finalName = `${filename}_${timestamp}.json`;
 
-    window.generateOutputFile = function () {
-      const spanishJson = replaceTextFields(inputJson, spanishPhrases);
-      downloadJson(spanishJson, "spanish_translation");
-    };
-  </script>
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement("a");
+      a.href = url;
+      a.download = finalName;
+
+      document.body.appendChild(a);
+      a.click();
+
+      document.body.removeChild(a);
+      URL.revokeObjectURL(url);
+    } catch (error) {
+      console.error(error);
+    }
+  }
+
+  function getAllInputTextFields() {
+    return collectTextFields(inputJson);
+  }
+
+  function setCookie(name, value, days) {
+    const date = new Date();
+    date.setTime(date.getTime() + (days*24*60*60*1000));
+    const expires = "expires=" + date.toUTCString();
+    document.cookie = name + "=" + encodeURIComponent(value) + ";" + expires + ";path=/";
+  }
+
+  function getCookie(name) {
+    const nameEQ = name + "=";
+    const cookies = document.cookie.split(';');
+    for(let i = 0; i < cookies.length; i++) {
+      let c = cookies[i].trim();
+      if (c.indexOf(nameEQ) === 0) return decodeURIComponent(c.substring(nameEQ.length));
+    }
+    return "";
+  }
+
+  const englishPhrases = getAllInputTextFields();
+  const spanishPhrases = [...englishPhrases];
+
+  const tbody = document.querySelector("#translations tbody");
+  let index = 0;
+
+  englishPhrases.forEach(englishPhrase => {
+    const row = document.createElement("tr");
+
+    const col1 = document.createElement("td");
+    const englishTextArea = document.createElement("textarea");
+    englishTextArea.value = englishPhrase;
+    englishTextArea.disabled = true;
+    englishTextArea.rows = 5;
+    col1.appendChild(englishTextArea);
+
+    const col2 = document.createElement("td");
+    const spanishTextArea = document.createElement("textarea");
+    spanishTextArea.rows = 5;
+    spanishTextArea.name = index.toString();
+    spanishTextArea.value = getCookie("Spanish_Translation_" + index.toString());
+    spanishPhrases[index] = spanishTextArea.value;
+
+    // Some text is blank, but we want to render it because it keeps the order and index of the translations
+    if (englishPhrase.trim().length === 0) {
+      spanishTextArea.disabled = true;
+    } else {
+      spanishTextArea.onchange = () => {
+        const spanishIndex = Number.parseInt(spanishTextArea.name);
+        spanishPhrases[spanishIndex] = spanishTextArea.value;
+        setCookie("Spanish_Translation_" + spanishIndex.toString(), spanishTextArea.value, 7); // cookie expires in 7 days
+      }
+    }
+
+    col2.appendChild(spanishTextArea);
+
+    row.appendChild(col1);
+    row.appendChild(col2);
+    tbody.appendChild(row);
+
+    index++;
+  });
+
+  window.generateOutputFile = function () {
+    const spanishJson = replaceTextFields(inputJson, spanishPhrases);
+    downloadJson(spanishJson, "spanish_translation");
+  };
+</script>
 
 </body>
 
